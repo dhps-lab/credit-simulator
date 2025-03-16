@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { CustomersService } from 'src/customers/services/customers/customers.service';
+import { CustomersService } from './../../../customers/services/customers/customers.service';
 
 @Injectable()
 export class SimulationsService {

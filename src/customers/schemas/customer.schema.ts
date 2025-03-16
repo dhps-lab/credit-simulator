@@ -13,6 +13,8 @@ export class Customer {
   borrowing_capacity: number;
   @Prop()
   birthdate: Date;
+  @Prop()
+  dni: string;
 }
 
 export const CustomerSchema = SchemaFactory.createForClass(Customer);
