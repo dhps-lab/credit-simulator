@@ -7,6 +7,12 @@ export class Simulation {
     public date: Date = new Date(),
   ) {}
 }
+
+export class Offer {
+  amount: number;
+  state: string;
+}
+
 export class Customer {
   _id: string;
   name: string;
@@ -15,4 +21,5 @@ export class Customer {
   birthdate: Date;
   dni: string;
   simulations: Simulation[] = [];
+  offers: Offer[] = [];
 }

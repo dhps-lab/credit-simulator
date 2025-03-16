@@ -1,6 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument } from 'mongoose';
 import { Simulation } from './simulation.schema';
+import { Offer } from './offer.schema';
 
 export type CustomerDocument = HydratedDocument<Customer>;
 
@@ -23,6 +24,9 @@ export class Customer {
 
   @Prop()
   simulations: [Simulation];
+
+  @Prop()
+  offers: [Offer];
 }
 
 export const CustomerSchema = SchemaFactory.createForClass(Customer);

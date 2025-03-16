@@ -66,4 +66,15 @@ export class ParametersService {
     );
     return rangeFiltered[0].percentage / 100;
   }
+
+  async checkState(state: string) {
+    this.parameter = this.parameter || (await this.findLastParam());
+    const stateValid = this.parameter.offer_states.filter(
+      (offerState) => offerState === state,
+    );
+    if (stateValid.length !== 1) {
+      throw new ConflictException('Estado no valido dentro de las opciones');
+    }
+    return stateValid[0];
+  }
 }
