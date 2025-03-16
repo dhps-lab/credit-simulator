@@ -14,7 +14,7 @@ export class CustomersService {
   async findById(id: string): Promise<Customer> {
     const customer = await this.customerModel.findById(id).exec();
     if (!customer) {
-      throw new NotFoundException('Customer not found');
+      throw new NotFoundException('Cliente no encontrado');
     }
     return customer;
   }
@@ -22,7 +22,7 @@ export class CustomersService {
   async findByDni(dni: string): Promise<Customer> {
     const customer = await this.customerModel.findOne({ dni }).exec();
     if (!customer) {
-      throw new NotFoundException('Customer not found');
+      throw new NotFoundException('Cliente no encontrado');
     }
     return customer;
   }

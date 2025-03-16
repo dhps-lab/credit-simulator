@@ -17,7 +17,9 @@ export class ParametersService {
   async findLastParam() {
     const parameter = await this.customerModel.findOne().sort({ _id: 'desc' });
     if (!parameter) {
-      throw new NotFoundException("Parameters aren't load");
+      throw new NotFoundException(
+        'Parametros no han sido cargados a la base de datos',
+      );
     }
     this.parameter = parameter;
     return parameter;
@@ -50,7 +52,9 @@ export class ParametersService {
       (termParameters) => termParameters === time,
     );
     if (terms.length !== 1) {
-      throw new ConflictException('Term not valid');
+      throw new ConflictException(
+        'Meses no valido dentro de los valores permitidos',
+      );
     }
     return terms[0];
   }
