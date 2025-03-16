@@ -1,4 +1,4 @@
-import { IsIn, IsNumber, IsNumberString, IsPositive } from 'class-validator';
+import { IsNumber, IsNumberString, IsPositive } from 'class-validator';
 
 export class CreateSimulationDto {
   @IsNumberString()
@@ -10,6 +10,5 @@ export class CreateSimulationDto {
 
   @IsNumber()
   @IsPositive()
-  @IsIn([])
-  readonly time: number;
+  readonly months: number;
 }

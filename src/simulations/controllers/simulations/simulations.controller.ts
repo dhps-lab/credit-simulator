@@ -8,7 +8,7 @@ export class SimulationsController {
 
   @Post()
   simulatesCredit(@Body() payload: CreateSimulationDto) {
-    const { customerId, amount, time } = payload;
+    const { customerId, amount, months: time } = payload;
     return this.simulationsService.simulatesCredit(customerId, amount, time);
   }
 }

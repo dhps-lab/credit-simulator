@@ -1,3 +1,12 @@
+export class Simulation {
+  constructor(
+    public amount: number,
+    public months: string,
+    public insurance_amount: number,
+    public base_payment?: number,
+    public date: Date = new Date(),
+  ) {}
+}
 export class Customer {
   _id: string;
   name: string;
@@ -5,4 +14,5 @@ export class Customer {
   borrowing_capacity: number;
   birthdate: Date;
   dni: string;
+  simulations: Simulation[] = [];
 }

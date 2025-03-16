@@ -24,7 +24,7 @@ describe('SimulationsController', () => {
     const response = await controller.simulatesCredit({
       amount: 12,
       customerId: '12345',
-      time: 12,
+      months: 12,
     });
     expect(response).toStrictEqual(12);
   });

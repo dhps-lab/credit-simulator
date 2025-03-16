@@ -1,3 +1,4 @@
+import { Simulation } from './../../entities/customer.entity';
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
@@ -24,5 +25,16 @@ export class CustomersService {
       throw new NotFoundException('Customer not found');
     }
     return customer;
+  }
+
+  async saveSimulation(customerId: string, simulation: Simulation) {
+    await this.customerModel
+      .findByIdAndUpdate(
+        customerId,
+        { $push: { simulations: simulation } },
+        { new: true },
+      )
+      .exec();
+    return this.findById(customerId);
   }
 }
